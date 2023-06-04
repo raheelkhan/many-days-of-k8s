@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
+}

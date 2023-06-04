@@ -1,0 +1,18 @@
+FROM node:20.2.0 AS build
+
+WORKDIR /usr/src/app
+COPY package*.json ./
+COPY tsconfig.json ./
+RUN npm install
+COPY ./server.ts ./
+RUN npm run build
+
+
+FROM node:20.2.0-alpine
+WORKDIR /usr/src/app
+COPY --from=build /usr/src/app/server.js ./
+COPY --from=build /usr/src/app/package.json ./
+COPY --from=build /usr/src/app/package-lock.json ./
+RUN npm install --omit=dev
+
+CMD [ "node", "server.js" ]
