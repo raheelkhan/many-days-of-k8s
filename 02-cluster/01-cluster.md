@@ -1,0 +1,1 @@
+We can get to see if our kubernetes components are healthy by running `k get componentstatuses` command.
