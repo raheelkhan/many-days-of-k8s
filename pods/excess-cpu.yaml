@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: excess-cpu
+  name: excess-cpu
+spec:
+  restartPolicy: Never
+  containers:
+  - image: nginx
+    name: excess-cpu-nginx
+    resources:
+      requests:
+        cpu: "3000m"
+  - image: busybox
+    name: excess-cpu-busybox
+    resources:
+      requests:
+        cpu: "2000m"
+    command:
+    - sleep
+    - infinity

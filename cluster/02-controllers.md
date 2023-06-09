@@ -1,6 +1,6 @@
 Kuberenetes shipped with various controllers. They are bundled together in a controlplae component call `kube-controller-manager`.The job of controller is to make the actual state of cluster nearer to the desired state.
 
-Because kubernetes cluster has many API objects, It was not possible to make a single controller that could operatoe on all the resources. Hence they are splitted into different codebase but overall managed by `kube-controller-manager`.
+Because kubernetes cluster has many API objects, It was not possible to make a single controller that could operate on all the resources. Hence they are splitted into different codebase but overall managed by `kube-controller-manager`.
 
 For example if we want to create a `Job` in kubernetes, We will define the `Job` in the manfiest file and apply it via `kubectl`. The job controller will see this and it will understand that it has to make sure that somewhere in the cluster this job has to be run and has to be completed successfully. The job controller will not run the pod itselt. It will tell the API Server to create or remove the Pod on which the job will run. To demonstrate this I am creating a Job as mentioned in `job-manifest.yaml` file.
 
@@ -39,3 +39,7 @@ But I am still confused, How can I check who created the Pod on which the Job ra
 - The kubelet, running on each worker node, continuously monitors the pod assignments from etcd.
 - When the kubelet detects a new pod assignment, it communicates with the Container Runtime Interface (CRI) of the node (e.g., Docker, containerd) to start the pod.
 - The CRI interacts with the container runtime to create the pod's containers, set up namespaces, networking, and other necessary resources.
+
+One way to list all controllers started by the kube-conntroller-manager component is to run
+`kubectl logs -n kube-system kube-controller-manager-minikube | grep Started`
+
