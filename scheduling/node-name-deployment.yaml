@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: node-name-deployment
+  name: node-name-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-name-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-name-deployment
+    spec:
+      nodeName: kubenode01
+      containers:
+      - image: busybox
+        name: busybox
+        resources: {}
+        command:
+          - sleep
+          - infinity
+status: {}
