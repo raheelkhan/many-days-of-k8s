@@ -5,4 +5,6 @@
 - Update image on the deployment `kubectl set image deployment/deployment-name containername=image-name`
 - Get pods with label `kubectl get pods -l key=value`
 - Taint a node for NoSchdeule `kuebctl taint node nodename key=value:NoSchedule`
-- To get all nodes with label `$ k get nodes -l nodetype=worker`
+- To get all nodes with label `kubectl get nodes -l nodetype=worker`
+- To get top on node / see cpu and memory usage  `kubectl top nodes`
+- To see top on pods / see cpu and memory suage `kubectl top pods`

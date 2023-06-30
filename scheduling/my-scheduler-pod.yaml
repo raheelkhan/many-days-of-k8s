@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-scheduler-pod
+  name: my-scheduler-pod
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - image: nginx
+    name: my-scheduler-pod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
