@@ -1,0 +1,9 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: v1beta3-TEMPLATE-NAME
+  title: TEMPLATE-TITLE
+  description: TEMPLATE-DESCRIPTION
+spec:
+  owner: group:default/platform-engineering-ee
+  type: TEMPLATE-TYPE
